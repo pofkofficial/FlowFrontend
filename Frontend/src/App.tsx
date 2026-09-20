@@ -4,7 +4,6 @@ import { IconContext } from '@phosphor-icons/react';
 // Pages
 import Login from './pages/Login';
 import CheckIn from './pages/public/CheckIn';
-//import TicketStatus from './pages/TicketStatus';
 import StaffDashboard from './pages/staff/StaffDashboard';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 
@@ -36,7 +35,7 @@ export default function App() {
 
           {/* Protected Admin Routes */}
           <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
-          <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/*" element={<AdminDashboard />} />
           </Route>
 
           {/* Fallback Redirection */}

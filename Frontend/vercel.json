@@ -1,20 +1,5 @@
 {
-  
-  "headers": [
-    {
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "inline"
-        }
-      ]
-    }
-  ],
-
+  "version": 2,
   "rewrites": [
     {
       "source": "/(.*)",
