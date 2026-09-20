@@ -44,7 +44,7 @@ export default function AdminDashboard() {
   // Polling State
   const [isAutoRefresh, setIsAutoRefresh] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
-  const pollingTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const pollingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [metrics, setMetrics] = useState<DashboardMetrics>({
     waitingCount: 0,
