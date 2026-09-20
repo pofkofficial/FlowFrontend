@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import React, { useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 import { 
   QrCodeIcon, 
   UserIcon, 
@@ -7,7 +7,6 @@ import {
   ChatCircleTextIcon, 
   CheckCircleIcon, 
   ArrowRightIcon,
-  SparkleIcon
 } from '@phosphor-icons/react';
 import { apiFetch } from '../../services/api';
 
@@ -24,8 +23,7 @@ interface IssuedTicket {
 
 export default function CheckIn() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const counterIdParam = searchParams.get('counterId');
+ 
 
   // Form inputs
   const [customerName, setCustomerName] = useState('');
