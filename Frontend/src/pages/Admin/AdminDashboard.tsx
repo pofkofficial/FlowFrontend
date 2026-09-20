@@ -53,16 +53,18 @@ export default function AdminDashboard() {
     activeCounters: 0,
   });
 
-  interface QRCodeResponse {
-    message: string;
-    data: {
-      targetUrl: string;
-      pngDataUrl: string;
-      svgString: string;
-    };
+  interface QRCodeData {
+    targetUrl: string;
+    pngDataUrl: string;
+    svgString: string;
   }
 
-  const [qrData, setQrData] = useState<QRCodeResponse | null>(null);
+  interface QRCodeResponse {
+    message: string;
+    data: QRCodeData;
+  }
+
+  const [qrData, setQrData] = useState<QRCodeData | null>(null);
   const [isQrLoading, setIsQrLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -79,7 +81,7 @@ export default function AdminDashboard() {
         const response = await apiFetch<QRCodeResponse>('/admin/qr-code');
 
         if (isMounted) {
-          setQrData(response.data);
+          setQrData(response.data || response);
         }
       } catch (err) {
         console.error('Failed to load QR code preview:', err);
